@@ -157,18 +157,7 @@ vintage_photobooth/
 
 ---
 
-# 💡 Future Improvements
 
-- Custom LUT imports
-- VHS-style video mode
-- Animated grain simulation
-- Polaroid frame templates
-- Direct social media export
-- DSLR camera support
-
----
-
-# 📜 License
 
 This project is licensed under the MIT License.
 
