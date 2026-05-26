@@ -4,12 +4,18 @@ import time
 import sys
 import os
 
+<<<<<<< HEAD
 # Force the terminal output to support UTF-8/Emojis
 sys.stdout.reconfigure(encoding='utf-8')
 
 # ==========================================
 # 🎞️ THE FUJI & VINTAGE FILM RECIPES 🎞️
 # ==========================================
+=======
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
 
 def recipe_fuji_chrome(img):
     """Muted, cinematic, low saturation with deep shadows."""
@@ -97,9 +103,12 @@ def recipe_expired_slide(img):
     
     return (cv2.merge((b, g, r)) * 255).astype(np.uint8)
 
+<<<<<<< HEAD
 # ==========================================
 # 🛠️ BOOTH PIPELINE & USER INTERFACE 🛠️
 # ==========================================
+=======
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
 
 def main():
     # Capture webcam loop
@@ -110,7 +119,11 @@ def main():
     filter_names = ["Classic Chrome", "Superia Warm", "Fuji ACROS B&W", "1970s Sepia", "Expired Slide"]
     current_idx = 0
     
+<<<<<<< HEAD
     print("🚀 Vintage Photo Booth is Online!")
+=======
+    print(" Vintage Photo Booth is Online!")
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
     print(" -> Press [C] to cycle through film recipes.")
     print(" -> Press [SPACEBAR] to capture your photostrip.")
     print(" -> Press [ESC] to safely terminate setup.")
@@ -207,4 +220,8 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd

@@ -12,8 +12,11 @@ sys.stdout.reconfigure(encoding='utf-8')
 # Set application theme
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
 def recipe_fuji_chrome(img):
     img_f = img.astype(float) / 255.0
     b, g, r = cv2.split(img_f)
@@ -66,10 +69,13 @@ def recipe_expired_slide(img):
     return (cv2.merge((b, g, r)) * 255).astype(np.uint8)
 
 
+<<<<<<< HEAD
 # ==========================================
 # 💻 GUI APPLICATION CLASS 💻
 # ==========================================
 
+=======
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
 class VintageBoothApp(ctk.CTk):
     def __init__(self):
         super().__init__()
@@ -242,4 +248,8 @@ class VintageBoothApp(ctk.CTk):
 
 if __name__ == "__main__":
     app = VintageBoothApp()
+<<<<<<< HEAD
     app.mainloop()
+=======
+    app.mainloop()
+>>>>>>> 3e89ba018df5da1b6d3bedeb27f42dd2f3f852bd
