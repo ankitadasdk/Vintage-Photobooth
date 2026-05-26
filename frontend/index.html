@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE STATEMENT - Vintage Photobooth</title>
+    <style>
+        /* --- CORE CONFIGS & SKEUOMORPHIC STYLES --- */
+        :root {
+            --brass-shiny: #e0b034;
+            --brass-dark: #8a640f;
+            --copper-pipe: linear-gradient(to bottom, #b87333, #d27d2d, #8b4513, #b87333);
+            --wood-grain: #2b1d0c linear-gradient(rgba(0,0,0,0.1) 50%, rgba(255,255,255,0.05) 50%);
+        }
+
+        body {
+            background-color: #120c06;
+            background-image: radial-gradient(circle, #24190e 0%, #0d0804 100%);
+            color: #f4ecd8;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Newspaper Masthead Layout */
+        .masthead {
+            text-align: center;
+            border-bottom: 4px double #4a351e;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .masthead h1 {
+            font-size: 3.5rem;
+            font-family: 'Georgia', serif;
+            font-weight: 900;
+            letter-spacing: 4px;
+            margin: 0;
+            color: #dfd5be;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .masthead .sub-tag {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #8c7355;
+            margin-top: 5px;
+        }
+
+        /* Machine Dashboard Wrapper */
+        .booth-machine {
+            display: flex;
+            background: var(--wood-grain);
+            background-size: 100% 4px;
+            border: 12px solid #1a1107;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: inset 0 0 40px rgba(0,0,0,0.9), 0 20px 50px rgba(0,0,0,0.8);
+            gap: 30px;
+            max-width: 1050px;
+            position: relative;
+        }
+
+        /* Left Control Panel Area */
+        .control-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            justify-content: center;
+            align-items: center;
+            background: #1f150a;
+            border: 3px solid #140d06;
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: inset 0 0 20px #000;
+        }
+
+        .dial-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            color: #a48663;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        /* Mechanical Toggle Switch (Recipe Selection) */
+        .recipe-toggle-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .recipe-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .mech-btn {
+            background: linear-gradient(135deg, #444, #222);
+            border: 3px solid #8a640f;
+            color: #dfd5be;
+            padding: 8px 14px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 4px 0 #5f4307, inset 0 1px 2px rgba(255,255,255,0.2);
+            text-transform: uppercase;
+        }
+
+        .mech-btn.active {
+            background: linear-gradient(135deg, #cc9933, #8a640f);
+            color: #000;
+            box-shadow: 0 1px 0 #5f4307, inset 0 2px 5px rgba(0,0,0,0.5);
+            transform: translateY(3px);
+        }
+
+        /* Heavy Steampunk Crank Wheel (Interval Selection) */
+        .crank-wheel {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #5a4018 20%, #2b1c09 60%, #8a640f 100%);
+            border: 4px solid #1a1107;
+            position: relative;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.6);
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .crank-handle {
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #fff, #b87333);
+            border-radius: 50%;
+            position: absolute;
+            top: 10px;
+            left: 35px;
+            box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+        }
+
+        /* Center Lens Box (Webcam Box) */
+        .lens-enclosure {
+            position: relative;
+            padding: 25px;
+            background: #0d0804;
+            border-radius: 6px;
+            box-shadow: inset 0 0 30px #000;
+        }
+
+        /* Copper Piping Simulation Framework */
+        .pipe-frame {
+            border: 10px solid transparent;
+            border-image: var(--copper-pipe) 10;
+            padding: 5px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.7);
+        }
+
+        .camera-viewport {
+            position: relative;
+            width: 480px;
+            height: 360px;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Massive Brass Glow Countdown Overlay */
+        .countdown-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 10, 5, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9rem;
+            font-family: 'Georgia', serif;
+            color: #ffcc44;
+            text-shadow: 0 0 30px #ff9900, 0 0 60px #ff5500;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .countdown-overlay.active { opacity: 1; }
+
+        /* Bottom Heavy Brass Trigger Mechanism */
+        .trigger-assembly {
+            margin-top: 20px;
+            background: linear-gradient(to bottom, #1f150a, #110904);
+            border: 2px solid #3d2a14;
+            border-radius: 4px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .action-plate-btn {
+            background: linear-gradient(to bottom, #d44, #800);
+            border: 3px solid #8a640f;
+            padding: 12px 28px;
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #f4ecd8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 6px 0 #5a0000, 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .action-plate-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #5a0000;
+        }
+
+        /* Right Side Antiqued Cardboard Film Strip */
+        .filmstrip-housing {
+            background: #e6dfcc;
+            background-image: radial-gradient(circle at 50% 50%, #f4ecd8 60%, #cbd2be 100%);
+            padding: 20px 15px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3), 5px 15px 30px rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 160px;
+            border: 1px solid #bda88a;
+        }
+
+        .strip-header {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            font-weight: bold;
+            color: #4a3d2c;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #a49379;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 5px;
+        }
+
+        .vertical-strip-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .cell-frame {
+            background: #111;
+            padding: 6px;
+            border: 1px solid #999;
+            box-shadow: 2px 4px 8px rgba(0,0,0,0.4);
+            position: relative;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .cell-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .cell-meta {
+            position: absolute;
+            bottom: 2px;
+            right: 5px;
+            font-size: 0.55rem;
+            font-family: monospace;
+            color: #666;
+        }
+
+        canvas { display: none; }
+    </style>
+</head>
+<body>
+
+    <div class="masthead">
+        <h1>THE STATEMENT</h1>
+        <div class="sub-tag">// official old state daguerreotype machine //</div>
+    </div>
+
+    <div class="booth-machine">
+        
+        <div class="control-panel">
+            <div class="recipe-toggle-group">
+                <div class="dial-label">Film Engine</div>
+                <div class="recipe-buttons">
+                    <button class="mech-btn active" data-vibe="classic_mono">Mono Film</button>
+                    <button class="mech-btn" data-vibe="warm_nostalgia">Polaroid</button>
+                    <button class="mech-btn" data-vibe="disposable">90s Dispo</button>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 10px;">
+                <div class="dial-label">Interval</div>
+                <div id="crankWheel" class="crank-wheel" data-delay="5">
+                    <div class="crank-handle"></div>
+                </div>
+                <div id="intervalLabel" style="font-size: 0.75rem; margin-top: 8px; font-weight: bold; color: #8c7355;">5 SECONDS</div>
+            </div>
+        </div>
+
+        <div>
+            <div class="lens-enclosure">
+                <div class="pipe-frame">
+                    <div class="camera-viewport">
+                        <video id="video" autoplay playsinline></video>
+                        <div id="countdown" class="countdown-overlay">5</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trigger-assembly">
+                <button id="startSessionBtn" class="action-plate-btn">Engage Machine ⚡</button>
+            </div>
+        </div>
+
+        <div class="filmstrip-housing">
+            <div class="strip-header">RECENT SNAPSHOTS</div>
+            <div class="vertical-strip-container">
+                <div class="cell-frame"><img id="thumb1" src="" alt="" /><div class="cell-meta">POS_01</div></div>
+                <div class="cell-frame"><img id="thumb2" src="" alt="" /><div class="cell-meta">POS_02</div></div>
+                <div class="cell-frame"><img id="thumb3" src="" alt="" /><div class="cell-meta">POS_03</div></div>
+            </div>
+        </div>
+
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+</html>
