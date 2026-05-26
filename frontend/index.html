@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE STATEMENT - Vintage Photobooth</title>
+    <title>THE VINTAGE PHOTOBOOTH</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+    
     <style>
         /* --- CORE CONFIGS & SKEUOMORPHIC STYLES --- */
         :root {
@@ -25,32 +28,25 @@
             align-items: center;
         }
 
-        /* Newspaper Masthead Layout */
+        /* --- UPDATED BLACKLETTER MASTHEAD LAYOUT --- */
         .masthead {
             text-align: center;
             border-bottom: 4px double #4a351e;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            padding-bottom: 15px; /* Added extra padding for the sweeping descenders */
+            margin-bottom: 35px;
             width: 100%;
             max-width: 1000px;
         }
 
         .masthead h1 {
-            font-size: 3.5rem;
-            font-family: 'Georgia', serif;
-            font-weight: 900;
-            letter-spacing: 4px;
+            font-family: 'UnifrakturMaguntia', serif;
+            font-size: 5rem; /* Increased size slightly since Gothic fonts are more condensed */
+            font-weight: normal; /* Blackletter fonts don't need a heavy font-weight property */
+            letter-spacing: 1px;
             margin: 0;
             color: #dfd5be;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
-
-        .masthead .sub-tag {
-            font-size: 0.8rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #8c7355;
-            margin-top: 5px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+            line-height: 1.1;
         }
 
         /* Machine Dashboard Wrapper */
@@ -297,8 +293,7 @@
 <body>
 
     <div class="masthead">
-        <h1>THE STATEMENT</h1>
-        <div class="sub-tag">// official old state daguerreotype machine //</div>
+        <h1>The Vintage Photobooth</h1>
     </div>
 
     <div class="booth-machine">
