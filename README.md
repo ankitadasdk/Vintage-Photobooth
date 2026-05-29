@@ -40,6 +40,7 @@ The backend processes raw image arrays through mathematical matrix operations to
 ### Prerequisites
 * Python 3.10+
 * A modern web browser with webcam permissions enabled
+* direct link: https://vintage-photobooth-ten.vercel.app/
 
 ### 1. Spin Up the Backend Server
 ```bash
