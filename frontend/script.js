@@ -11,7 +11,7 @@ const thumbs = [
     document.getElementById('thumb3')
 ];
 
-const backendUrl = "http://127.0.0.1:8000/filmstrip"; 
+const backendUrl = "https://vintage-photobooth-backend.onrender.com/filmstrip"; 
 let capturedBlobs = []; 
 let activeFilter = "classic_mono"; 
 let selectedInterval = 5;
