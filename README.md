@@ -4,7 +4,7 @@ A full-stack web application that transforms live webcam captures into authentic
 
 ---
 
-## 🛠️ System Architecture
+##  System Architecture
 
 The application is built using a modern decoupled architecture to handle real-time streaming and heavy image matrix transformations seamlessly:
 
@@ -13,7 +13,7 @@ The application is built using a modern decoupled architecture to handle real-ti
 
 ---
 
-## 🎨 Immersive Design & Film Recipes
+##  Immersive Design & Film Recipes
 
 ### Skeuomorphic Interface Elements
 * **Copper Piping Framework:** Wraps the live video viewport to mimic vintage machinery lenses.
@@ -28,14 +28,14 @@ The backend processes raw image arrays through mathematical matrix operations to
 
 ---
 
-## 🚀 Live Deployments
+##  Live Deployments
 
 * **Frontend Interface:** Hosted on **Vercel** for lightning-fast global delivery.
 * **Image Processing Engine:** Hosted on **Render** (Python Linux Container environment running Uvicorn).
 
 ---
 
-## 📦 Local Installation & Setup
+##  Local Installation & Setup
 
 ### Prerequisites
 * Python 3.10+
