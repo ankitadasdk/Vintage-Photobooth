@@ -12,13 +12,13 @@ Unlike basic digital filters that use flat color overlays, our custom pixel engi
 
 * **Acros B&W:** A clean, silky, low-contrast studio glam monochrome profile modeled after traditional silver-halide prints. Features velvet shadows and glowing, smooth skin midtones.
 * **Mono Film:** A gritty, high-contrast, street-style flash monochrome preset. Utilizes a custom mathematical **S-Curve Gamma Adjustment** to drop shadows into deep charcoal while popping bright, raw highlights masked beneath a heavy, high-density analog grain layer (`grainIntensity = 55`).
-* **CineStill 800T:** A Hollywood-grid inspired tungsten cinematic look. Uses **linear interpolation curves** to smoothly blend deep shadows into cold navy/teal spectrums while dynamically isolating and warming up skin highlights. Includes a built-in *halation emulator* that triggers a soft red bleed around extreme exposure borders.
+* **CineStill :** A Hollywood-grid inspired tungsten cinematic look. Uses **linear interpolation curves** to smoothly blend deep shadows into cold navy/teal spectrums while dynamically isolating and warming up skin highlights. Includes a built-in *halation emulator* that triggers a soft red bleed around extreme exposure borders.
 * **Polaroid (Warm Nostalgia):** A rich, 1970s faded chemical profile with heavy golden-yellow/red channel shifts and compressed exposures.
 * **Expired Slide & Sepia:** Classic lo-fi cross-processed acid color balancing and antiqued darkroom matte sepia tones.
 
 ---
 
-## 🛠️ Architecture & Technical Highlights
+##  Architecture & Technical Highlights
 [ Webcam Input Stream ] ──> [ HTML5 Canvas Captures ]
 │
 ▼
@@ -66,5 +66,5 @@ Bash
 cd Vintage-Photobooth
 Open index.html directly in any standard modern web browser, or launch it with a local server framework like VS Code's Live Server extension.
 
-📜 License
+ License
 Distributed under the MIT License. See LICENSE for more information.
